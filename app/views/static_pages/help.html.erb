@@ -1,0 +1,43 @@
+<% provide(:title, 'Help') %>
+
+<div class='row'>
+    <div class='col-md-8'>
+        <h2>Listing a Book</h2>
+        <p>
+            To list a book, click on the <%= link_to 'Sell', '/books/new' %> towards the upper left corner of the navbar.
+            Then, fill in each field in the form. While a picture is not necessary, it is very helpful to buyers and provides 
+            a clearer image of the product.
+        </p>
+        <h4>Selecting a Condition</h4>
+        <p>When choosing a condition, think about these criteria</p>
+        <div class='row'>
+            <div class='col-md-1'></div>
+            <div class='col-md-11'>
+                <h5 class='condition-new'>New</h5>
+                <ul>
+                    <li>Book has no signs of wear</li>
+                    <li>There is no writing in the book</li>
+                    <li>All of the book is present</li>
+                </ul>
+                <h5 class='condition-good'>Good</h5>
+                <ul>
+            <li>Book may have little to no signs of wear</li>
+            <li>There may be little to no writing in the book </li>
+            <li>All of the book is present</li>
+          </ul>
+                <h5 class='condition-fair'>Fair</h5>
+                <ul>
+            <li>Book may have obvious signs of wear</li>
+            <li>Book may have a decent amount of writing</li>
+            <li>Book may be missing a few pages</li>
+          </ul>
+                <h5 class='condition-poor'>Poor</h5>
+                <ul>
+            <li>Book may have obvious signs of wear</li>
+            <li>Book may have a lot of writing</li>
+            <li>Book may be missing many pages</li>
+          </ul>
+            </div>
+        </div>
+    </div>
+</div>

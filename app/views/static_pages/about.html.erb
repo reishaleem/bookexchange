@@ -1,0 +1,25 @@
+<% provide(:title, 'About') %>
+<h1>About The OSU Book Exchange</h1>
+<div class='row'>
+    <div class='col-md-8'>
+        <p>
+            This project was completed using Ruby on Rails. It was completed for CSE 3901's final project. Each member of the team 
+            worked on several different components of the site. Some of the key components were Books and Users, the HTML/CSS, and
+            the searching feature.
+        </p>
+        <p>
+            There were a few gems added to the Gemfile apart from the default gems loaded with rails. These include:
+        </p>
+        <ul>
+            <li><%= link_to 'bootstrap', 'https://getbootstrap.com/' %> &#8212; for formatting and styling the app</li>
+            <li><%= link_to 'bcrypt', 'https://rubygems.org/gems/bcrypt' %> &#8212; to handle safe passwords for users</li>
+            <li><%= link_to 'carrierwave', 'https://rubygems.org/gems/carrierwave' %> &#8212; to handle user and book image uploads</li>
+            <li><%= link_to 'mini_magick', 'https://rubygems.org/gems/mini_magick' %> &#8212; to handle image resizing</li>
+            <li><%= link_to 'jquery-rails', 'https://rubygems.org/gems/jquery-rails' %> &#8212; for using jquery in the app (mainly for bootstrap)</li>
+            <li><%= link_to 'sunspot_rails', 'https://rubygems.org/gems/sunspot_rails' %> &#8212; to handle searching and advanced filtering using Solr search engine</li>
+            <li><%= link_to 'will_paginate', 'https://rubygems.org/gems/will_paginate' %> &#8212; to paginate book search results and user book lists</li>
+            <li><%= link_to 'will_paginate-bootstrap4', 'https://rubygems.org/gems/will_paginate-bootstrap4' %> &#8212; to take advantage of bootstrap pagination</li>
+        </ul>
+    </div>
+    <div class='col-md-2'></div>
+</div>

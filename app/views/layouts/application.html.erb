@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookexchange</title>
+    <title><%= yield(:title) %> | OSU Book Exchange</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/navbar' %>
+    <div class='container-fluid'>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div> <!-- ./container-fluid -->
   </body>
 </html>
