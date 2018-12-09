@@ -11,5 +11,5 @@ class User < ApplicationRecord
   validates :age, :numericality => { :greater_than => 0, :less_than_or_equal_to => 100 }, :allow_nil => true
 
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 end

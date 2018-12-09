@@ -16,5 +16,8 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require best_in_place
+//= require jquery-ui
 //= require best_in_place.jquery-ui
+//= require jquery.purr
+//= require best_in_place.purr
 //= require_tree .
