@@ -21,16 +21,6 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test 'rank should be present' do
-    @user.rank = ''
-    assert_not @user.valid?
-  end
-
-  test 'age should be present' do
-    @user.age = ''
-    assert_not @user.valid?
-  end
-
   # Test attribute length constraints
   test 'name should not be too long' do
     @user.name = 'a' * 41
