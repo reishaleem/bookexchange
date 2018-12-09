@@ -65,3 +65,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.1.3'
 gem 'autoprefixer-rails', '~> 9.3', '>= 9.3.1'
 gem 'jquery-rails'
+gem 'best_in_place', '~> 3.1', '>= 3.1.1'

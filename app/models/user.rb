@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :books, dependent: :destroy
 
   before_save { self.email = email.downcase }
 
