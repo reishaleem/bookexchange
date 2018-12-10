@@ -1,4 +1,11 @@
 <ul>
+
+  <%= image_tag @user.avatar.url, class: 'img-fluid rounded d-block' %>
+   <%= form_for @user, :html => {:class => 'new_user'} do |form| %>
+    <%= form.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
+    <%= form.submit 'Create Account', class: 'btn btn-submit-button-black' %>
+  <% end %>
   <li>Name: <%= best_in_place @user, :name, :as => :input %></li>
   <li>Email: <%= @user.email %></li>
+
 </ul>
