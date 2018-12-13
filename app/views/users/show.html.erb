@@ -3,7 +3,7 @@
   <div class='col-md-6'>
     <%= image_tag @user.avatar.url, class: 'img-fluid rounded mx-auto d-block user-profile-pic' %>
     <div class='text-center pt-2'>
-      <h4><%= best_in_place @user, :name, :as => :input %></h4>
+      <h4><%= best_in_place_if current_user == @user, @user, :name, :as => :input %></h4>
       <p>Joined <%= @user.created_at.month %>/<%= @user.created_at.year %></p>
     </div>
     <div class='row'>
@@ -14,25 +14,25 @@
             <li class="list-group-item">
               <i class="fas fa-envelope-square fa-2x align-middle"></i> 
               <span class='user-profile-text ml-2'>
-                <%= best_in_place @user, :email, :as => :input %>
+                <%= best_in_place_if current_user == @user, @user, :email, :as => :input %>
               </span>
             </li>
             <li class="list-group-item">
               <i class="fas fa-phone-square fa-2x align-middle"></i> 
               <span class='user-profile-text ml-2'>
-                <%= best_in_place @user, :phone, :as => :input, :display_with => :number_to_phone, :place_holder => 'Phone not available' %>
+                <%= best_in_place_if current_user == @user, @user, :phone, :as => :input, :display_with => :number_to_phone, :place_holder => 'Phone not available' %>
               </span>
             </li>
             <li class="list-group-item">
               <i class="fas fa-graduation-cap fa-2x align-middle"></i> 
               <span class='user-profile-text ml-2'>
-                <%= best_in_place @user, :rank, :as => :select, :collection => [[1, 'Freshman'], [2, 'Sophomore'], [3, 'Junior'], [4, 'Senior']], :place_holder => 'Rank not available', :include_blank => "Select..." %>
+                <%= best_in_place_if current_user == @user, @user, :rank, :as => :select, :collection => [[1, 'Freshman'], [2, 'Sophomore'], [3, 'Junior'], [4, 'Senior']], :place_holder => 'Rank not available', :include_blank => "Select..." %>
               </span>
             </li>
             <li class="list-group-item">
               <i class="fas fa-user fa-2x align-middle"></i>
               <span class='user-profile-text ml-3'>
-                <%= best_in_place @user, :age, :as => :input, :place_holder => 'Age not available' %>
+                <%= best_in_place_if current_user == @user, @user, :age, :as => :input, :place_holder => 'Age not available' %>
               </span>
             </li>
           </ul>
@@ -49,11 +49,14 @@
       <ol class="user-book-list">
         <% if @user.books.any? %>
           <%= render @books %>
+          
         <% else %>
           <li><h3>No Books Listed</h3></li>
         <% end %>
       </ol>
-      
+      <div class='user-book-pagination'>
+        <%= will_paginate @books, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, :previous_label => '&laquo;', :next_label => '&raquo;', :page_links => false %>
+      </div>
     </div>
 </div>
 

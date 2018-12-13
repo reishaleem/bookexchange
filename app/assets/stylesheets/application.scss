@@ -130,3 +130,22 @@ body {
       width: 90px;
   }
 }
+
+.timestamp {
+  color: #A6ACAF;
+}
+
+.user-book-pagination .pagination {
+  .page-item { 
+      span, a {
+          color: #fff;
+          background: linear-gradient(to bottom,#bb0000,#960000);
+      }
+  }
+
+  .disabled {
+      span {
+          background: linear-gradient(to bottom,#bb0000,#D98880);
+      }
+  }
+}
