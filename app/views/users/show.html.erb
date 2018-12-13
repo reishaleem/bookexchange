@@ -1,11 +1,59 @@
-<ul>
+<% provide(:title, @user.name) %>
+<div class='row'>
+  <div class='col-md-6'>
+    <%= image_tag @user.avatar.url, class: 'img-fluid rounded mx-auto d-block user-profile-pic' %>
+    <div class='text-center pt-2'>
+      <h4><%= best_in_place @user, :name, :as => :input %></h4>
+      <p>Joined <%= @user.created_at.month %>/<%= @user.created_at.year %></p>
+    </div>
+    <div class='row'>
+      <div class='col-md-3'></div>
+      <div class='col-md-6'>
+        <div class='user-profile-info'>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <i class="fas fa-envelope-square fa-2x align-middle"></i> 
+              <span class='user-profile-text ml-2'>
+                <%= best_in_place @user, :email, :as => :input %>
+              </span>
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-phone-square fa-2x align-middle"></i> 
+              <span class='user-profile-text ml-2'>
+                <%= best_in_place @user, :phone, :as => :input, :display_with => :number_to_phone, :place_holder => 'Phone not available' %>
+              </span>
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-graduation-cap fa-2x align-middle"></i> 
+              <span class='user-profile-text ml-2'>
+                <%= best_in_place @user, :rank, :as => :select, :collection => [[1, 'Freshman'], [2, 'Sophomore'], [3, 'Junior'], [4, 'Senior']], :place_holder => 'Rank not available', :include_blank => "Select..." %>
+              </span>
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-user fa-2x align-middle"></i>
+              <span class='user-profile-text ml-3'>
+                <%= best_in_place @user, :age, :as => :input, :place_holder => 'Age not available' %>
+              </span>
+            </li>
+          </ul>
+          <% if current_user == @user %>
+            <p class='text-center small'>Click an item to edit</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-3'></div>
+  </div>
+    <div class='col-md-6'>
+      <h2><%= @user.name %>'s Books</h2>
+      <ol class="user-book-list">
+        <% if @user.books.any? %>
+          <%= render @books %>
+        <% else %>
+          <li><h3>No Books Listed</h3></li>
+        <% end %>
+      </ol>
+      
+    </div>
+</div>
 
-  <%= image_tag @user.avatar.url, class: 'img-fluid rounded d-block' %>
-   <%= form_for @user, :html => {:class => 'new_user'} do |form| %>
-    <%= form.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
-    <%= form.submit 'Create Account', class: 'btn btn-submit-button-black' %>
-  <% end %>
-  <li>Name: <%= best_in_place @user, :name, :as => :input %></li>
-  <li>Email: <%= @user.email %></li>
-
-</ul>
