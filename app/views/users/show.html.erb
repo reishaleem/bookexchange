@@ -9,37 +9,39 @@
     <div class='row'>
       <div class='col-md-3'></div>
       <div class='col-md-6'>
-        <div class='user-profile-info'>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <i class="fas fa-envelope-square fa-2x align-middle"></i> 
-              <span class='user-profile-text ml-2'>
-                <%= best_in_place_if current_user == @user, @user, :email, :as => :input %>
-              </span>
-            </li>
-            <li class="list-group-item">
-              <i class="fas fa-phone-square fa-2x align-middle"></i> 
-              <span class='user-profile-text ml-2'>
-                <%= best_in_place_if current_user == @user, @user, :phone, :as => :input, :display_with => :number_to_phone, :place_holder => 'Phone not available' %>
-              </span>
-            </li>
-            <li class="list-group-item">
-              <i class="fas fa-graduation-cap fa-2x align-middle"></i> 
-              <span class='user-profile-text ml-2'>
-                <%= best_in_place_if current_user == @user, @user, :rank, :as => :select, :collection => [[1, 'Freshman'], [2, 'Sophomore'], [3, 'Junior'], [4, 'Senior']], :place_holder => 'Rank not available', :include_blank => "Select..." %>
-              </span>
-            </li>
-            <li class="list-group-item">
-              <i class="fas fa-user fa-2x align-middle"></i>
-              <span class='user-profile-text ml-3'>
-                <%= best_in_place_if current_user == @user, @user, :age, :as => :input, :place_holder => 'Age not available' %>
-              </span>
-            </li>
-          </ul>
-          <% if current_user == @user %>
-            <p class='text-center small'>Click an item to edit</p>
-          <% end %>
-        </div>
+        <% if logged_in? %>
+          <div class='user-profile-info'>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <i class="fas fa-envelope-square fa-2x align-middle"></i> 
+                <span class='user-profile-text ml-2'>
+                  <%= best_in_place_if current_user == @user, @user, :email, :as => :input %>
+                </span>
+              </li>
+              <li class="list-group-item">
+                <i class="fas fa-phone-square fa-2x align-middle"></i> 
+                <span class='user-profile-text ml-2'>
+                  <%= best_in_place_if current_user == @user, @user, :phone, :as => :input, :display_with => :number_to_phone, :place_holder => 'Phone not available' %>
+                </span>
+              </li>
+              <li class="list-group-item">
+                <i class="fas fa-graduation-cap fa-2x align-middle"></i> 
+                <span class='user-profile-text ml-2'>
+                  <%= best_in_place_if current_user == @user, @user, :rank, :as => :select, :collection => [[1, 'Freshman'], [2, 'Sophomore'], [3, 'Junior'], [4, 'Senior']], :place_holder => 'Rank not available', :include_blank => "Select..." %>
+                </span>
+              </li>
+              <li class="list-group-item">
+                <i class="fas fa-user fa-2x align-middle"></i>
+                <span class='user-profile-text ml-3'>
+                  <%= best_in_place_if current_user == @user, @user, :age, :as => :input, :place_holder => 'Age not available' %>
+                </span>
+              </li>
+            </ul>
+            <% if current_user == @user %>
+              <p class='text-center small'>Click an item to edit</p>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class='col-md-3'></div>
