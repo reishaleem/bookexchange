@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'books/new'
   get 'users/new'
   root 'static_pages#home'
 
