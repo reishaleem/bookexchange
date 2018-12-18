@@ -8,10 +8,10 @@
         <div>
           <div class='inner-new-form'>
               <div class='form-row'>
-                <div class='form-group col-md-11'>
+                <div class='form-group col-sm-11'>
                   <%= form.text_field :title, class: 'form-control', placeholder: 'Title' %>
                 </div>
-                <div class='form-group col-md-1'>
+                <div class='form-group col-sm-1'>
                   <%= form.text_field :edition, class: 'form-control', placeholder: 'ed.' %>
                 </div>
               </div>
@@ -23,7 +23,7 @@
                   <%= form.text_field :isbn, class: 'form-control', placeholder: 'ISBN' %>
                 </div>
                 <div class='form-group col-md-4'>
-                  <%= form.select :condition, [['Select condition...', nil], ['New', 'New'], ['Good', 'Good'], ['Fair', 'Fair'], ['Poor', 'Poor']], {}, class: "form-control" %>
+                  <%= form.select :condition, [['New', 'New'], ['Good', 'Good'], ['Fair', 'Fair'], ['Poor', 'Poor']], { include_blank: "Select condition..." } , { class: "form-control test" } %>
                 </div>
                 <div class='form-group col-md-5'>
                   <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
