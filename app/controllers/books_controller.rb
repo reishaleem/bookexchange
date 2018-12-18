@@ -5,7 +5,27 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
+  def show
+    @book = Book.find(params[:id])
+  end
+
+  def create
+    @book = Book.new(book_params)
+    @book.user_id = current_user.id
+
+    if @book.save
+      flash[:success] = 'Book was successfully created!'
+      redirect_to @book
+    else
+      render 'new'
+    end
+  end
+
   private
+    def book_params
+      params.require(:book).permit(:title, :isbn, :edition, :author, :condition, :price, :course, :professor, :picture)
+    end
+
     # Confirms a logged-in user.
     def logged_in_user
       unless logged_in?

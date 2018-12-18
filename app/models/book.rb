@@ -3,7 +3,7 @@ class Book < ApplicationRecord
 
   default_scope -> { order(created_at: :desc) }
   before_save { self.course = course.upcase }
-  before_save { self.prof = prof.capitalize }
+  before_save { self.professor = professor.capitalize }
 
   validates :title, presence: true, length: { maximum: 80 }
   VALID_ISBN_REGEX = /\A(97(8|9))?\d{9}(\d|X)\z/i
